@@ -3,17 +3,25 @@
     {
       "path": "about.html",
       "title": "About this blog",
-      "description": "Some additional details about the blog",
+      "description": "CEPMAR SpA",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2024-03-26T21:43:31-03:00"
+      "contents": "\n\n\n\n\n\n\n",
+      "last_modified": "2024-03-26T22:49:34-03:00"
     },
     {
       "path": "index.html",
       "title": "Blog del Cepmar",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-03-26T21:43:31-03:00"
+      "last_modified": "2024-03-26T22:49:35-03:00"
+    },
+    {
+      "path": "Reports.html",
+      "title": "Reports",
+      "description": "Technical reports",
+      "author": [],
+      "contents": "\n2022\nGuía para la revisión de la Regla de Control de Captura de Crustáceos Demersales, Luis A. Cubillos, Enzo Acuña. CEPMAR Boletín Técnico 2-1 (2022), 20 p.\n2021\nAnálisis espacio-temporal de la abundancia de crustáceos demersales en Chile. Luis A. Cubillos, Rubén Alarcón, Alex Cortes, Enzo Acuña. CEPMAR Boletín Técnico 1-1 (2021), 44 p.\n\n\n\n",
+      "last_modified": "2024-03-26T22:49:35-03:00"
     }
   ],
   "collections": ["posts/posts.json"]

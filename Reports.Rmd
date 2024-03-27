@@ -1,0 +1,13 @@
+---
+title: "Reports"
+description: |
+  Technical reports
+---
+
+2022
+
+- Guía para la revisión de la Regla de Control de Captura de Crustáceos Demersales, Luis A. Cubillos, Enzo Acuña. CEPMAR Boletín Técnico 2-1 (2022), 20 p.
+
+2021
+
+- Análisis espacio-temporal de la abundancia de crustáceos demersales en Chile. Luis A. Cubillos, Rubén Alarcón, Alex Cortes, Enzo Acuña. CEPMAR Boletín Técnico 1-1 (2021), 44 p.
