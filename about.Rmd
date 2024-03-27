@@ -1,9 +1,13 @@
 ---
 title: "About this blog"
 description: |
-  Some additional details about the blog
+  CEPMAR SpA
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+knitr::include_graphics("images/Logo_cepmar.jpg")
 ```
