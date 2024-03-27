@@ -4,10 +4,14 @@ description: |
   Technical reports
 ---
 
-2022
+**2023**
 
-- Guía para la revisión de la Regla de Control de Captura de Crustáceos Demersales, Luis A. Cubillos, Enzo Acuña. CEPMAR Boletín Técnico 2-1 (2022), 20 p.
+Predicción espaciotemporal de índices de biomasa y estatus de crustáceos demersales al 2023, Luis A. Cubillos, María José Cuevas, Juan Antón, Blanca Bustos. Bol. Téc. CEPMAR (2023), 3(2): 25 p.
 
-2021
+**2022**
+
+Guía para la revisión de la Regla de Control de Captura de Crustáceos Demersales, Luis A. Cubillos, Enzo Acuña. CEPMAR Boletín Técnico 2-1 (2022), 20 p.
+
+**2021**
 
 - Análisis espacio-temporal de la abundancia de crustáceos demersales en Chile. Luis A. Cubillos, Rubén Alarcón, Alex Cortes, Enzo Acuña. CEPMAR Boletín Técnico 1-1 (2021), 44 p.
