@@ -1,0 +1,147 @@
+---
+title: "¡Descubre cómo las Reglas de Control de Captura facilitan el manejo pesquero hacia la sostenibilidad!"
+description: |
+  Las Reglas de Control de Captura (RCC) son herramientas clave para el manejo sostenible de pesquerías. Estas reglas vinculan indicadores del estado de las poblaciones, como biomasa reproductiva o CPUE, con acciones específicas para ajustar la mortalidad por pesca y alcanzar objetivos de manejo. Basadas en puntos de referencia biológicos, las RCC permiten reaccionar ante diferentes estados del stock, asegurando la sostenibilidad de la pesquería. Existen estrategias como mortalidad por pesca constante, con umbrales o rampas, que se adaptan al nivel de datos disponible y a las condiciones del stock. Además, las RCC son esenciales en procedimientos de manejo participativos, evaluando su efectividad bajo incertidumbre mediante herramientas como la Evaluación de Estrategias de Manejo.
+
+author:
+  - name: Luis Cubillos
+date: 2025-01-08
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# ¿Qué es una regla de control de capturas?
+
+En el manejo de pesquerías, una Regla de Control de Captura (RCC) es un conjunto de normas que indican lo que se debe hacer cuando los indicadores del stock alcanzan o no alcanzan el objetivo de manejo, o cuando se acercan a los límites o los sobrepasan.
+
+Por lo tanto, las RCC relacionan el estado actual de la población (según diagnóstico de una evaluación de stock) con las medidas que miden el desempeño de la pesca. Las RCC pueden estar basadas en uno o varios indicadores. Estos indicadores pueden ser resultados de modelos (i.e., biomasa reproductiva) o parámetros empíricos (medidos directamente en la pesquería, como la captura por unidad de esfuerzo (CPUE) o la longitud media de los peces capturados). Independientemente de si el indicador se obtiene de un modelo o de los datos, el indicador proporciona información sobre el estado de la población. Las RCC proporcionan una interpretación respecto de un Punto Biológico de Referencia (PBR) objetivo o límite, y ajusta la mortalidad por pesca para evitar los límites y lograr el objetivo de manejo.
+
+No se debe confundir a las RCC con las "regulaciones pesqueras" tales como vedas biológicas, límites de capturas, regulaciones de artes y aparejos u otras restricciones estacionales/espaciales. Las RCC más bien especifican acciones simples en función de un indicador de estatus del stock, por ejemplo “si la pesquería está en la situación X, se debe realizar Y". Por ejemplo, si el indicador de estatus proviene de un modelo de evaluación de stock, la biomasa reproductiva es el indicador de estatus y la mortalidad por pesca puede ser la variable a controlar. La biomasa reproductiva se transforma en un indicador al dividirla por el PBR objetivo (PBRO) que está definido en el marco biológico para la explotación.
+
+Usualmente, y de acuerdo con el enfoque poblacional para el manejo, el marco biológico se sustenta en el paradigma del rendimiento máximo sostenido ($RMS$). Cuando el objetivo de manejo es mantener el estatus en torno del $RMS$, el objetivo operacional es la biomasa asociada al RMS ($B_{RMS}$) y la mortalidad por pesca del RMS ($F_{RMS}$).  
+
+Los Puntos Biológicos de Referencia Objetivos (PBRO) y límite (PBRL) indicarán si la pesquería está operando a niveles sostenibles (explotación plena) si el indicador de biomasa se ubica en torno o por sobre el PBRO, o sobreexplotada si está por debajo del PBRO, o agotada si está por debajo de su PBRL. Estos diferentes estados implican cambios en las acciones de manejo para lograr sustentabilidad, y una RCC puede utilizar PBR para especificar cambios en la mortalidad por pesca o captura en función del indicador de biomasa.
+
+# Estrategias de pesca y RCC
+
+Como se mencionó, idelamente las RCC deberían ser reactivas al estatus del stock. Sin embargo, deben considerar estrategias de explotación basadas ya sea en la mortalidad por pesca (tasa de explotación) o en las capturas, dependiendo de si la pesquería es clasificada como rica en datos, moderada en datos, o limitada en datos.
+
+Las estrategias de explotación genéricas son tres: a) tasa de mortalidad por pesca constante, b) captura constante, c) escape constante. Las RCC pueden utilizar una combinación de estrategias según el estatus, por ejemplo: tasa de mortalidad por pesca variable y proporcional al estatus cuando el indicador de biomasa sean menor al objetivo de manejo, y tasa de mortalidad por pesca constante cuando el indicador de estatus sea mayor al objetivo de manejo. En pesquerías limitadas en datos, las RCC pueden ser diseñadas en base a la variación de las capturas, por ejemplo el promedio de las capturas de los últimos tres años.
+
+
+## Constante
+
+Mantiene un valor de mortalidad por pesca objetivo constante e independiente del estatus del stock, e implica una estrategia de explotación con mortalidad por pesca (F) constante (o captura constante). Cuando se trata de una regla basada en F, la captura biológicamente aceptable (CBA) es proporcional al tamaño del stock.
+
+```{r echo=FALSE}
+# Prepara visualización de las RCC
+Brel <- seq(0,3,0.01)
+Ft <- numeric()
+Fmsy <- 0.3
+# REGLA A: Ft=0
+Ft = rep(Fmsy,length(Brel))
+A = Ft/Fmsy
+plot(Brel,Brel,type="n",xlab="B/Brms",ylab="F/Frms",xlim=c(0,2),ylim=c(0,2),las=1,main="RCC con mortalidad por pesca constante")
+lines(Brel,A,lwd=2)
+```
+
+## Umbral
+
+Mantiene un valor constante e independiente del estatus del stock a partir de cierto umbral del indicador de biomasa. Por debajo del umbral la pesquería se cierra (veda). Después del umbral, la mortalidad por pesca es constante, pero la CBA es proporcional al tamaño del stock. Esta estrategia combina un escape fijo con una mortalidad por pesca constante. Muy útil cuando se utilizan reglas basadas en capturas.
+
+```{r echo=FALSE}
+# REGLA F:Umbral
+for(i in 1:length(Brel)){
+  if(Brel[i] <= 0.5){
+    Ft[i] = 0 #veda
+  }
+  else{Ft[i] = Fmsy}
+}
+B = Ft/Fmsy
+plot(Brel,Brel,type="n",xlab="B/Brms",ylab="F/Frms",xlim=c(0,2),ylim=c(0,2),las=1,main="RCC con umbral de biomasa")
+lines(Brel,B,lwd=2)
+```
+
+## Escalera
+
+Mantiene valores constantes de F, independiente del estatus del stock según diferentes estados, a la forma de reducciones discretas en la mortalidad por pesca objetivo (Frms).
+
+```{r echo=FALSE}
+# REGLA F:Escalera
+for(i in 1:length(Brel)){
+  if(Brel[i]<=1){
+    Ft[i] = 0.5*Fmsy
+    if(Brel[i] <= 0.5){
+    Ft[i] = 0*Fmsy
+  }
+  }
+  else{Ft[i] = Fmsy}
+}
+C = Ft/Fmsy
+plot(Brel,Brel,type="n",xlab="B/Brms",ylab="F/Frms",xlim=c(0,2),ylim=c(0,2),las=1,main="RCC tipo escalera")
+lines(Brel,C,lwd=2)
+```
+
+## Rampa
+
+La mortalidad por pesca se reduce proporcionalmente en función del indicador de estatus, por debajo del objetivo de manejo. Esta RCC puede contener umbrales en que no se permita mortalidad por pesca. Por ejemplo, cuando el stock esté agotado, o muy agotado.
+
+```{r echo=FALSE}
+# REGLA F:Rampa
+for(i in 1:length(Brel)){
+  if(Brel[i] < 1){
+    Ft[i] = Brel[i]*Fmsy
+  }
+  else{Ft[i] = Fmsy}
+}
+D = Ft/Fmsy
+plot(Brel,Brel,type="n",xlab="B/Brms",ylab="F/Frms",xlim=c(0,2),ylim=c(0,2),las=1,main="RCC tipo escalera")
+lines(Brel,D,lwd=2)
+```
+
+
+## Reglas basadas en capturas
+
+Las reglas basadas en capturas usualmente son más fáciles de interpretar por múltiples actores que participan de una pesquería. Estas reglas permiten calcular directamente la captura aceptable en función ya sea del indicador de estatus o de un acuerdo basado en las capturas recientes. La forma funcional de la RCC basada en capturas pueden ser equivalentes a los efectos de la RCC basadas en la mortalidad por pesca previamente expuestas. 
+
+# Consideraciones finales
+
+Las RCC deberían ser acordadas por los usuarios de la pesquería según el(los) objetivos de manejo, la medida de manejo, grado de cumplimiento, y nivel de datos disponibles para la toma de decisiones en que se sustenta el manejo de la pesquería. En efecto, una RCC de captura es parte esencial de un procedimiento de manejo, junto con el seguimiento o monitoreo (datos) y el método de evaluación de stock. 
+
+Al considerar que las RCC son acordadas en una instancia participativa, el rol de la evaluación de stock es evaluar las RCC plausibles de aplicar bajo incertidmbre a través un procedimiento conocido como  Evaluación de Estragias de Manejo, el cual permite evaluar el desempeño y robustes de las RCC.
+
+# Glosario
+
+**$B_0$:** Biomasa reproductiva inexplotada, estimada como una cantidad fija y de referencia para el manejo.
+
+**$B_{RMS}$ :** Biomasa reproductiva asociada al punto biológico de referencia objetivo del marco biológico de explotación. Usualmente una fracción de $B_{0}$.
+
+**$B_{Lim}$:** Biomasa reproductiva límite, usualmente equivalente a la mitad de $B_{RMS}$ o 20% de $B_0$.
+
+**CBA:** Captura Biológicamente Aceptable. Considera una proyección de la
+abundancia, la captura resultante de la aplicación de una RCC, corregida por la fracción descartada, riesgo y criterios de estabilidad.
+
+**$F_{RMS}$:** Mortalidad por pesca asociada al punto de referencia objetivo del marco biológico para la explotación.
+
+**PBR:** Puntos Biológicos de Referencia.
+
+**PBRO:** Punto Biológico de Referencia Objetivo, definido ya sea en biomasa (ver $B_{RMS}$) o mortalidad por pesca ($F_{RMS}$).
+
+**PBRL:** Punto Biológico de Referencia Límite, definido ya sea en biomasa (ver $B_{Lim}$) o mortalidad por pesca ($F_{RMS}$).
+
+**RCC:** Regla de control de captura. Conjunto de acciones de manejo bien definidas y acordadas que describen cómo debe gestionarse una pesquería en función del estado de uno o varios indicadores específicos del estado de la población. Los cambios en los indicadores del estatus del stock deben medirse con respecto a puntos de referencia biológicos inferidos a partir de datos de seguimiento o modelos. Por ejemplo, una regla de control de las capturas puede describir los distintos valores de mortalidad por pesca a los que se aspirará con distintos
+niveles de abundancia de la población.
+
+**RMS:** Rendimiento Máximo Sostenido. La captura promedio más alta que puede ser obtenida de un stock bajo iguales condiciones ambientales y ecológicas prevalecientes.
+
+# Bibliografía consultada
+
+[Aaron M. Berger et al. (2012) Introduction to Harvest Control Rules for WCPO Tuna Fisheries](https://www.pewtrusts.org/es/research-and-analysis/fact-sheets/2016/07/harvest-control-rules)
+
+Cubillos, L & E. Acuña (2022) Guía para la revisión de la Regla de Control de Captura de Crustáceos Demersales. Boletín Técnico 2(1):1-20
+
