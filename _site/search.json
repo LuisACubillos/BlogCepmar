@@ -6,14 +6,14 @@
       "description": "CEPMAR SpA",
       "author": [],
       "contents": "\n\n\n\n\n\n\n",
-      "last_modified": "2025-01-08T07:15:27-03:00"
+      "last_modified": "2025-01-08T17:15:21-03:00"
     },
     {
       "path": "index.html",
       "title": "Blog del Cepmar",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2025-01-08T07:15:28-03:00"
+      "last_modified": "2025-01-08T17:15:21-03:00"
     },
     {
       "path": "Reports.html",
@@ -21,7 +21,7 @@
       "description": "Technical reports",
       "author": [],
       "contents": "\n2024\nRevisión de la evaluación de peces pelágicos en Ecuador, año 2023. Luis A. Cubillos. Bol. Téc. CEPMAR (2024), 4(2):1-13\n2023\nPredicción espaciotemporal de índices de biomasa y estatus de crustáceos demersales al 2023, Luis A. Cubillos, María José Cuevas, Juan Antón, Blanca Bustos. Bol. Téc. CEPMAR (2023), 3(2):1-25.\n2022\nGuía para la revisión de la Regla de Control de Captura de Crustáceos Demersales, Luis A. Cubillos, Enzo Acuña. CEPMAR Boletín Técnico 2-1 (2022), 20 p.\n2021\nAnálisis espacio-temporal de la abundancia de crustáceos demersales en Chile. Luis A. Cubillos, Rubén Alarcón, Alex Cortes, Enzo Acuña. CEPMAR Boletín Técnico 1-1 (2021), 44 p.\n\n\n\n",
-      "last_modified": "2025-01-08T07:15:28-03:00"
+      "last_modified": "2025-01-08T17:15:22-03:00"
     }
   ],
   "collections": ["posts/posts.json"]
