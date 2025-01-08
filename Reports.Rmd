@@ -4,9 +4,14 @@ description: |
   Technical reports
 ---
 
+**2024**
+
+Revisión de la evaluación de peces pelágicos en Ecuador, año 2023. Luis A. Cubillos. Bol. Téc. CEPMAR (2024), 4(2):1-13
+
+
 **2023**
 
-Predicción espaciotemporal de índices de biomasa y estatus de crustáceos demersales al 2023, Luis A. Cubillos, María José Cuevas, Juan Antón, Blanca Bustos. Bol. Téc. CEPMAR (2023), 3(2): 25 p.
+Predicción espaciotemporal de índices de biomasa y estatus de crustáceos demersales al 2023, Luis A. Cubillos, María José Cuevas, Juan Antón, Blanca Bustos. Bol. Téc. CEPMAR (2023), 3(2):1-25.
 
 **2022**
 
